@@ -1,21 +1,34 @@
 // 导入 路由
-import VueRouter from "vue-router";
+import VueRouter from 'vue-router'
 // 导入Vue
-import Vue from 'vue';
+import Vue from 'vue'
 // 如果实在模块化的开发环境下
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 // 导入每一个页面的 组件
-import index from '../components/index.vue'
-import detail from '../components/02.detail.vue'
-import shopCart from '../components/03.shopCart.vue'
-import order from '../components/04.order.vue'
-import login from '../components/05.login.vue'
-import payMoney from '../components/06.payMoney.vue'
-import paySuccess from '../components/07.paySuccess.vue'
-import vipCenter from '../components/08.vipCenter.vue'
-import orderList from '../components/09.orderList.vue'
-import orderDetail from '../components/10.orderDetail.vue'
-import orderIndex from '../components/11.index.vue'
+// import index from '../components/index.vue'
+// import detail from '../components/02.detail.vue'
+// import shopCart from '../components/03.shopCart.vue'
+// import order from '../components/04.order.vue'
+// import login from '../components/05.login.vue'
+// import payMoney from '../components/06.payMoney.vue'
+// import paySuccess from '../components/07.paySuccess.vue'
+// import vipCenter from '../components/08.vipCenter.vue'
+// import orderList from '../components/09.orderList.vue'
+// import orderDetail from '../components/10.orderDetail.vue'
+// import orderIndex from '../components/11.index.vue'
+
+// 使用 路由懒加载 来载入这些组件 优化性能
+const index = () => import('../components/index.vue')
+const detail = () => import('../components/02.detail.vue')
+const shopCart = () => import('../components/03.shopCart.vue')
+const order = () => import('../components/04.order.vue')
+const login = () => import('../components/05.login.vue')
+const payMoney = () => import('../components/06.payMoney.vue')
+const paySuccess = () => import('../components/07.paySuccess.vue')
+const vipCenter = () => import('../components/08.vipCenter.vue')
+const orderList = () => import('../components/09.orderList.vue')
+const orderDetail = () => import('../components/10.orderDetail.vue')
+const orderIndex = () => import('../components/11.index.vue')
 
 // 写路由规则
 let routes = [
@@ -90,6 +103,8 @@ let routes = [
       checkLogin: true
     },
     // 嵌套路由
+    // childern
+    // children
     children: [
       {
         path: '',
@@ -113,6 +128,7 @@ let routes = [
       },
       {
         // /vipCenter/orderDetail
+        // /vipCenter/orderDetail/xxx
         path: 'orderDetail/:orderId',
         component: orderDetail,
         meta: {
@@ -166,11 +182,11 @@ router.beforeEach((to, from, next) => {
   }
 })
 // // 路由跳转完毕触发
-// 这种方法 是使用导航守卫的 回调函数实现 
+// 这种方法 是使用导航守卫的 回调函数实现
 // router.afterEach((to, from) => {
 //   // 页面滚到顶部即可
 //   window.scrollTo(0,0);
 // })
 
 // 暴露一部分让外部访问
-export default router;
+export default router

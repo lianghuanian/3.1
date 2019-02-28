@@ -68,7 +68,6 @@
                                         <dd>
                                             <div id="buyButton" class="btn-buy">
                                                 <button
-                                                    onclick="cartAdd(this,'/',1,'/shopping.html');"
                                                     class="buy"
                                                 >立即购买</button>
                                                 <button

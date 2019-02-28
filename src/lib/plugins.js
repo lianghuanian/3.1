@@ -2,7 +2,7 @@
 import Vue from 'vue'
 // 导入element-ui框架
 // import ElementUI from "element-ui";
-import 'element-ui/lib/theme-chalk/index.css'
+// import 'element-ui/lib/theme-chalk/index.css'
 // 注册到Vue上
 // Vue.use(ElementUI);
 
@@ -27,11 +27,11 @@ import {
 Vue.use(InputNumber)
 Vue.use(Carousel)
 Vue.use(CarouselItem)
-Vue.use(Notification)
+// Vue.use(Notification)
 Vue.use(Switch)
 Vue.use(Button)
-Vue.use(MessageBox)
-Vue.use(Message)
+// Vue.use(MessageBox)
+// Vue.use(Message)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)
@@ -44,10 +44,17 @@ Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$message = Message
 
 // 导入IView框架
-import iView from 'iview'
-import 'iview/dist/styles/iview.css'
+// import iView from 'iview'
+// import 'iview/dist/styles/iview.css'
 // 注册到Vue上
-Vue.use(iView)
+// Vue.use(iView)
+
+// 按需引入 iView
+import {Affix,Page,BackTop} from 'iview'
+Vue.component('Affix',Affix)
+Vue.component('Page',Page)
+Vue.component('BackTop',BackTop)
+
 
 // 放大镜组件
 import ProductZoomer from 'vue-product-zoomer'
